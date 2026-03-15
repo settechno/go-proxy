@@ -1,0 +1,13 @@
+[Unit]
+Description=Simple SOCKS5 proxy
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/etc/my-proxy
+ExecStart=/etc/my-proxy/server
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
