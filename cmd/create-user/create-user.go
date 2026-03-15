@@ -21,8 +21,8 @@ func main() {
 
 	// Проверяем, не существует ли уже пользователь
 	foundedUser, _ := app.UserStorage.FindByUsername(username)
-	if foundedUser != nil {
-		fmt.Printf("Error: User %s already exists", username)
+	if foundedUser.Username != "" {
+		fmt.Printf("Error: User %s already exists\n", username)
 		os.Exit(1)
 	}
 
@@ -35,9 +35,9 @@ func main() {
 	// Добавляем нового пользователя
 	err := app.UserStorage.Add(newUser)
 	if err != nil {
-		fmt.Printf("Failed to add user: %v", err)
+		fmt.Printf("Failed to add user: %v\n", err)
 		os.Exit(1)
 	}
 
-	fmt.Printf("User %s created", username)
+	fmt.Printf("User %s created\n", username)
 }
